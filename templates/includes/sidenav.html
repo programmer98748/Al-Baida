@@ -1,0 +1,118 @@
+{% load static %}
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="{% url 'home:profile' %}" class="brand-link">
+      <img src="{{ user.profile.image.url }}" alt="" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">{{user.username}}</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <li class="nav-item has-treeview">
+            <a href="{% url 'home:home' %}" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
+              <p> الصفحة الرئيسية </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{% url 'home:informaion_site'  %}" class="nav-link">
+              <i class="nav-icon fas fa-cog fa-fw"></i>
+              <p> بيانات الموقع</p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{% url 'home:category' %}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                <i class="right fas fa-angle-left"></i>
+                  الاقسام
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'home:category' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> الاصناف</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+        
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class=" nav-icon fas fa-users"></i>
+              <p>
+                ادارة  الاعضاء 
+                <i class="fas fa-angle-left right"></i>            
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'home:aluser'  %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>المستخدمين </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'home:create_user_form'  %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>اضافة مستخدم</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'home:gallery' %}" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                البوم الصور
+              </p>
+            </a>
+          </li> 
+          <li class="nav-item has-treeview menu--open">
+            <a href="#" class="nav-link ">
+
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                الصفحات
+                <i class="right fas fa-angle-left"></i>
+
+                </p>
+              
+            
+            </a>
+            <ul class="nav nav-treeview">
+            
+              <li class="nav-item">
+                <a href="{% url 'home:page' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> الصفحة الرئيسية</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'home:page_about' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>اضافة جديد</p>
+                </a>
+              </li>
+              
+            </ul>
+         </li>      
+          <li class="nav-item has-treeview">
+            <a href="{% url 'logout' %}" class="nav-link">
+              <i class="fas fa-sign-out-alt"></i> 
+              <p>
+                خروج
+              </p>
+            </a>
+          </li>  
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

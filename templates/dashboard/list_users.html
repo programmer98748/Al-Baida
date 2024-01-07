@@ -1,0 +1,130 @@
+{% extends 'layouts/base.html' %}
+{% block title %} المستخدمين{% endblock %}
+
+{% block body %}
+  <div class="content-wrapper">
+    <section class="content" >
+      <div class="container-fluid " >
+        <div class="row">
+          <div class="col-12 mb-3">
+            <div id="content-wrapper">
+              <div class=" " style="margin-top: 10px;" >
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="{% url 'home:home' %}"><i class="nav-icon fas fa-home"></i>الصفحة الرئيسية</a></li>
+                  <li class="breadcrumb-item active">
+                      <a href="{% url 'home:aluser' %}"> قائمة المستخدمين</a>
+                  </li>
+                  </ol>
+                        {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                      {{ message }}
+                  </div>
+                        {% endfor %}
+                        
+                  <div class="card mb-3">
+                    <div class="card-header">
+                      <i class="fas fa-table"></i>
+                      قائمة المستخدمين
+                      <a  class="btn btn-sm btn-success" href="{% url 'home:create_user_form' %}" style="padding: 8px; float: left; background-color: green; color: white;">اضافة</a>
+                    </div>
+                    <div class="card-body">   
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Username</th>
+                                    <th>صلاحيات المستخدم</th>
+                                    <th>البريد الالكتروني</th>
+                                    <th>عرض</th>
+                                    <th>تعديل</th>
+                                    <th>حذف</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                            {% if users %}
+                                {% for user in users %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ user.username }}</td>
+                                        <td>
+                                          <form action="" method="post">
+                                              {% csrf_token %}
+                                              {% if user.is_staff == False %}
+                                                <input type="hidden"  value='1' name="active">
+                                                <input type="hidden"  name="user_id" value='{{ user.id }}'>
+                                                <input type="submit"  class="btn btn-success" value="تفعيل">
+                                              
+                                              {% else %}
+                                                <input type="hidden"  name="active" value='0'> 
+                                                <input type="hidden"   name="user_id" value='{{ user.id }}'>
+                                                <input type="submit"  class="btn btn-danger" value="تعطيل">
+                                              {% endif %}
+                                            </form>
+                                        </td>
+                                        <td>{{ user.email }}</td>
+                                        <td>
+                                          <a href="{% url 'home:alvuser' user.pk %}">
+                                            <button type="button" class="btn btn-primary"> عرض</button>
+                                          </a>
+                                        </td>
+                                        <td>
+                                          <a href="{% url 'home:aeuser' user.pk %}">
+                                            <button type="button" class="btn btn-warning"> <i class="fas fa-edit"></i></button></a>
+                                        </td>
+                                        <td>
+                                          <a href="{% url 'home:aduser' user.pk %}">
+                                            <button type="button" class="btn btn-danger"> <i class="fas fa-trash"></i></button></a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% endif %}
+                                </tbody>
+                            </table>
+
+                                {% if is_paginated %}
+                            <ul class="pagination">
+                              {% if page_obj.has_previous %}
+                                <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                              {% else %}
+                                <li class="disabled"><span>&laquo;</span></li>
+                              {% endif %}
+                              {% for i in paginator.page_range %}
+                                {% if page_obj.number == i %}
+                                  <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                {% else %}
+                                  <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                              {% endfor %}
+                              {% if page_obj.has_next %}
+                                <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                              {% else %}
+                                <li class="disabled"><span>&raquo;</span></li>
+                              {% endif %}
+                            </ul>
+                                {% endif %}
+                        </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}
+
+{% block extrascripts %}
+  <script type="text/javascript">
+      $(function () {
+          // Hide message
+          $(".alert").fadeTo(2000, 500).slideUp(500, function () {
+              $(".alert").slideUp(500);
+          });
+      });
+  </script>
+{% endblock extrascripts %}

@@ -1,0 +1,85 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %} {{category.name} {% endblock %}
+{% block body %}
+
+    <main id="main">
+
+          <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>{{category.name}}</h2>
+          <ol>
+            <li><a href="index.html">الصفحة الرئيسية</a></li>
+            <li> {{category.name}}</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+
+      <!-- ======= Portfolio Details Section ======= -->
+      <section id="portfolio-details" class="portfolio-details">
+        <div class="container">
+
+          <div class="row gy-4">
+
+            <div class="col-lg-8">
+              <div class="portfolio-details-slider swiper">
+                <div class="swiper-wrapper align-items-center">
+                  {% for image in images %}
+                  <div class="swiper-slide">
+                    <a href="{{ image.image.url }}" data-fancybox="portfolio" class="portfolio-lightbox">
+                    <img src="{{ image.imageURL }}" alt="">
+                  </a>
+                  </div>
+                  {% endfor %}
+                  
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="portfolio-info">
+                <h2>الوصف</h2>
+                <p>
+                  {{category.description}}
+                </p>
+
+              </div>
+              
+              <div class="portfolio-info">
+                <h2>التفاصيل</h2>
+                <ul>
+                  <li><strong>Category</strong> : {{category.name}}</li>
+                  <li><strong>التاريخ</strong> : {{category.create_at|date:'d M o'}} </li>
+                  <li><strong>مزيد من المشاريع</strong> : <a href="#">www.example.com</a></li>
+                </ul>
+
+                <br>
+                <h3>شارك </h3>
+                <div class="social-links mt-3 text-center">
+                  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                </div>
+              </div>
+              
+            
+              
+            </div>
+
+          </div>
+
+        </div>
+      </section><!-- End Portfolio Details Section -->
+
+    </main><!-- End #main -->
+{% endblock %}

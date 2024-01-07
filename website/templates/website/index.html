@@ -1,0 +1,275 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% for x in information_site %}
+{% block title %}{{x.name}}  {% endblock %}
+{% endfor %}
+{% block body %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" dir="ltr">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+      {% for v in homepage %}
+      <div class="carousel-item active" style="background-image: url({{ v.image.url }}">
+          <div class="carousel-container"> 
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown"> <span>{{v.title}} </span></h2>
+              <p class="animate__animated animate__fadeInUp">{{v.description}} </p>
+              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">عرض المزيد</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <!-- Slide 2 -->
+
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+
+
+
+  
+  <!-- ABOUT COMPANY START -->
+  <div class="section-full " style="background-image:url(images/background/bg-map.png)">
+  {% for x in information_site %}
+    <div class="services-half-section-top ">
+        <div class="container">
+            <!-- TITLE START -->
+            <div class="section-head">
+                <div class="mt-separator-outer separator-center text-wh">
+                    <div class="mt-separator">
+                        <h2 class="text-uppercase sep-line-one "><span class="font-weight-300 site-text-primary">حول</span> المؤسسة</h2>
+                    </div>
+                    
+                </div>
+            </div>                   
+            <!-- TITLE END --> 
+
+                <div class="section-content">
+                    <div class="row">
+                        
+                        
+                        <div class="col-xl-12 col-lg-12 col-md-12">
+                            <div class="about-home-right about-right-v2 site-bg-primary text-black p-a30">
+                                <h3 class="m-t0"><span class="font-weight-100">ملتزم</span>لجودة ونتائج عالية.</h3>
+                                <p><strong>{{x.description}}
+                                 
+                                <div class="text-left">
+                                    <a href="about-1.html" class="site-button-secondry btn-effect">اقرأ أكثر</a>
+                                </div>                                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          </div>
+    </div>     
+    
+    <div class="services-half-section-bottom p-t80 p-b50  bg-secondry bg-cover bg-center bg-no-repeat" style="background-image:url(images/background/bg5.jpg' %})">
+        <div class="container">
+            <div class="section-content">
+                <div class="row" style="text-align: center;">
+                    
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="site-text-primary mt-icon-box-wraper left m-b30" >
+
+                            <div class="icon-content text-white">                                
+                                <div class="counter font-50 font-weight-800 m-b5">{{ x.compalete_project}}</div>
+                                <span class="font-16">  مشاريع مكملة  </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="site-text-primary mt-icon-box-wraper left m-b30">
+                            
+                            <div class="icon-content text-white">                                
+                                <div class="counter font-50 font-weight-800 m-b5">{{ x.compalete_project}}</div>
+                                <span class="font-16"> العملاء</span>
+                            </div>
+                        </div>
+                    </div>
+              
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="site-text-primary mt-icon-box-wraper left m-b30">
+                            
+                            <div class="icon-content text-white">                                
+                                <div class="counter font-50 font-weight-800 m-b5">180</div>
+                                <span class="font-16">العاملين</span>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+  
+    </div>
+
+    {% endfor %}
+  </div>   
+
+
+  <!-- OUR SERVICES START -->
+  <div class="section-full mobile-page-padding our-service-wrap  p-b50  square_shape2">
+    <div class="section-content">
+                <div class="Service-half-top p-t80  bg-gray bg-moving" style="background-image: url(&quot;{% static 'assets/&quot;); background-position: -864px 0px;">
+                    <div class="container">
+                        <!-- TITLE START -->
+                        <div class="section-head text-black"> 
+                            <div class="mt-separator-outer separator-center">
+                                <div class="mt-separator">
+                                    <h2 class="text-black text-uppercase sep-line-one "><span class="font-weight-300 site-text-primary">الخدمات التي</span>  نقدمها</h2>
+                                </div>
+                            </div>
+                            <h3>هناك العديد من الاختلافات في مقاطع لوريم إيبسوم المتاحة ، لكن الغالبية عانت من التغيير</h3>
+                        </div>                  
+                        <!-- TITLE END -->
+                    </div>
+                </div>
+                <div class="services-half-bottom">
+                    <div class="container">
+                        <div class="row">
+                          {% for x in categories%}
+                            <div class="col-lg-4 col-md-6">
+                                
+                                <div class="mt-icon-box-wraper m-b30">
+                                  
+                                    <div class="relative icon-count-2  " style="background-color: #f8f9fa;">
+                                      <span class="icon-count-number">{{ x.id}}</span>
+                                      
+                                      <img src="{{x.image.url}}" alt="">
+                                        <div class="icon-content p-a30 p-tb30">
+                                            <h4 class="mt-tilte m-b25">  {{ x.name}}</h4>
+                                            <p>{{ x.description}}</p>
+                                            <a href="{% url 'portfolio_details' x.slug %}" class="site-button-link" data-hover="اقرأ أكثر"> التفاصيل <i class="fa fa-angle-right arrow-animation"></i></a>
+                                        </div>
+                                    </div>
+                                </div>                            	
+                                
+                            </div>
+
+                         {% endfor %}
+                          
+
+        
+                                                                                      
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hilite-title text-left p-l50 text-uppercase text-pop-up-top">
+                <strong>الخدمات</strong>
+            </div>                    
+        </div>   
+  <!-- OUR SERVICES  END -->
+              
+  <!-- CALL US SECTION START -->
+  <div class="section-full p-tb80 overlay-wraper bg-center bg-parallax bg-cover" style="background-image:url(images/background/bg-10.jpg' %})">
+    <div class="overlay-main bg-black opacity-07"></div>
+      <div class="container">
+        {% for x in information_site %}
+          <div class="section-content">
+              <div class="call-us-section text-center text-white">
+                  <h4 class="m-b15">فلنعمل معًا</h4>
+                  <h2 class="call-us-number m-b15 m-b0">{{x.telephone}} </h2>
+                  <h4 class="call-us-address m-t0 m-b20"> {{x.address}}</h4>
+                  <a href="contact-1.html" class="site-button btn-effect">اتصل بنا</a>
+              </div>
+          </div>
+          {% endfor %}
+          
+      </div>
+  </div>   
+  <!-- CALL US SECTION END -->
+  
+
+    
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <!-- End About Section -->
+
+ 
+    <!-- ======= Services Section ======= -->
+    <!-- End Services Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <!-- TITLE START -->
+					<div class="section-head">
+						<div class="mt-separator-outer separator-center">
+							<div class="mt-separator">
+								<h2 class="text-uppercase sep-line-one "><span class="font-weight-300 site-text-primary">معرض</span> اعمالنا</h2>
+							</div>
+						</div>
+					</div>                   
+        <!-- TITLE END --> 
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+              <ul id="portfolio-flters">
+                  <li data-filter="*" class="filter-active">الكل</li>
+                  {% for category in categories %}
+                      <li data-filter=".filter-{{ category.id }}">{{ category.name }}</li>
+                  {% endfor %}
+              </ul>
+          </div>
+      </div>
+
+      <div class="row portfolio-container">
+          {% for image in images %}
+              <div class="col-lg-4 col-md-6 portfolio-item filter-{{image.category.id}}">
+                  <div class="portfolio-wrap">
+                      <img src="{{ image.image.url }}" style="width:100%" class="img-fluid" alt="">
+                      <div class="portfolio-info">
+                          <h4>{{ image.title }}</h4>
+                          <p>{{ image.category }}</p>
+                          <div class="portfolio-links">
+                              <a href="{{ image.image.url }}" data-fancybox="portfolio" class="portfolio-lightbox" title="{{ image.name }}"><i class="bx bx-plus"></i></a>
+                              <a href="" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          {% endfor %}
+      </div>
+
+        
+        <div class="hilite-title text-left p-l50 text-uppercase text-pop-up-top">
+          <strong>معرض اعمالنا</strong>
+      </div>  
+
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    
+
+  </main><!-- End #main -->
+
+  <div class="buttonizer buttonizer-group buttonizer-group-0-0-60"><a role="button" class="buttonizer-closed-0-0-69 buttonizer-button buttonizer-button-0-0-64 buttonizer-head" href="javascript:void(0)" aria-label="Menu button"><i aria-hidden="true" class="fas fa-plus buttonizer-icon-0-0-65"></i></a><a role="button" class="buttonizer-closed-0-0-76 buttonizer-button buttonizer-button-0-0-71" href="tel:+966534929391" aria-label="Call action (phone number)"><i aria-hidden="true" class="fas fa-phone buttonizer-icon-0-0-72"></i></a></div>
+  <div class="buttonizer buttonizer-group buttonizer-group-0-0-78"><a role="button" class="buttonizer-closed-0-0-87 buttonizer-button buttonizer-button-0-0-82 buttonizer-head" href="javascript:void(0)" aria-label="Menu button"><i aria-hidden="true" class="fas fa-plus buttonizer-icon-0-0-83"></i></a><a role="button" class="buttonizer-closed-0-0-94 buttonizer-button buttonizer-button-0-0-89" href="tel:+966534929391" aria-label="Call action (phone number)"><i aria-hidden="true" class="fas fa-phone buttonizer-icon-0-0-90"></i></a><a role="button" class="buttonizer-closed-0-0-101 buttonizer-button buttonizer-button-0-0-96" href="tel:+966552221339" aria-label="Call action (phone number)"><i aria-hidden="true" class="fas fa-phone buttonizer-icon-0-0-97"></i></a></div>
+
+  <script type="text/javascript" src="{% static 'assets/vendor/isotope.pkgd.min.js' %}"></script> 
+    
+
+
+
+  {% endblock %}

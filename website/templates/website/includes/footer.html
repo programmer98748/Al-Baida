@@ -1,0 +1,183 @@
+{% load static %}
+  <!-- FOOTER START -->
+  
+<!-- FOOTER END -->
+
+
+
+
+
+
+{% for x in information_site %}
+
+<footer class="site-footer footer-large  footer-light	footer-wide" style="display: block; height:px;">
+  <div class="container call-to-action-wrap bg-no-repeat bg-center" style="background-image:url(images/background/bg-site.png);">
+      <div class="p-a30  site-bg-primary">
+          <div class="row">
+              <div class="col-md-8 col-sm-8">
+                  <div class="call-to-action-left text-black">
+                      <h4 class="text-uppercase m-b10 m-t0">اشترك في نشرتنا الإخبارية!</h4>
+                      <span>لا تفوت أي شيء من الشكل بالتسجيل في النشرة الإخبارية.</span>
+                  </div>
+              </div>
+              
+              <div class="col-md-4 col-sm-4">
+                  <div class="call-to-action-right">
+                      <div class="widget_newsletter">
+                          <div class="newsletter-bx">
+                              <form role="search" method="post">
+                                  <div class="input-group">
+                                      <input name="news-letter" class="form-control" placeholder="أدخل بريدك الإلكتروني" type="text">
+                                      <span class="input-group-btn">
+                                          <button type="submit" class="site-button"><i class="fa fa-paper-plane-o"></i></button>
+                                      </span>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>                                                           
+                  </div>
+              </div>
+          </div>
+       </div>
+  </div>            
+  <!-- FOOTER BLOCKES START -->  
+  <div class="footer-top overlay-wraper">
+      <div class="overlay-main"></div>
+      <div class="container">
+          <div class="row">
+              <!-- ABOUT COMPANY -->
+              <div class="col-lg-3 col-md-6 col-sm-6">  
+                  <div class="widget widget_about">
+                      <h4 class="widget-title">من نحنوا</h4>
+                     
+      <p class="max-w400">        
+             {{x.description}}   
+                                                        
+                  </div>
+              </div> 
+              
+              <!-- RESENT POST -->
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="widget widget_address_outer">
+                      <h4 class="widget-title">اتصل بنا</h4>
+                      <ul class="widget_address">
+                        <li>{{ x.address }}</li>
+                        <li><a href="mailto:{{ x.email}}">{{ x.email}}</a> </li>
+                        <li><a href="tel:+{{ x.telephone }}" > {{ x.telephone }}</a></li>
+                          <li>(+298) 146-6543-480</li>
+                      </ul>
+                 
+                  </div>                                              	
+              </div>                          
+              
+              <!-- USEFUL LINKS -->
+              <div class="col-lg-3 col-md-6 col-sm-6 footer-col-3">
+                  <div class="widget widget_services inline-links">
+                      <h4 class="widget-title">روابط مفيدة</h4>
+                      <ul>
+                          <li><a href="{% url 'about'%}">حول</a></li>
+                          <li><a href="{% url 'portfolio' %}">معرض اعمالنا</a></li>
+                          <li><a href="">مدونة</a></li>
+                          <li><a href="{% url 'contact' %}">اتصل بنا</a></li>
+                      </ul>
+                  </div>                           
+              </div>
+              
+              <!-- TAGS -->
+              <div class="col-lg-3 col-md-6 col-sm-6 text-center">
+                <div class="widget widget_about">
+
+                <div class=" clearfix p-b15">
+                  <a href="#"><img src="{{x.image_footer.url}}" alt=""></a>
+              
+                </div>
+                  
+
+                  <ul class="social-icons  mt-social-links">
+                    <li>
+                      <a href="{{ x.twitter }}" class="twitter"><i class="bx bxl-twitter"></i></a>                          </li>
+                    <li>
+                      <a href="{{x.facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+                    <li>
+                      <a href="{{x.instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+                    </li>
+                    <li>
+                      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                    </li>
+                    <li>
+                      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>                          </li>
+                    </li>
+                </ul>  
+                </div>
+              </div>
+              <!-- NEWSLETTER -->
+
+          </div>
+      </div>  
+  </div>
+  <!-- FOOTER COPYRIGHT -->
+  <div class="footer-bottom overlay-wraper">
+      <div class="overlay-main"></div>
+      <div class="container">
+          <div class="row">
+              <div class="mt-footer-bot-center">
+                  <span class="copyrights-text">© 2024 جميع الحقوق محفوظة  . لدي مؤسسةالبيداء.</span>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+{% endfor%}
+
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+  <script>
+      var url =
+          "https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?21984";
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = url;
+      var options = {
+          enabled: true,
+          chatButtonSetting: {
+              backgroundColor: "#4dc247",
+              ctaText: "",
+              borderRadius: "25",
+              marginLeft: "5",
+              marginBottom: "125",
+              marginRight: "5",
+              position: "left",
+              
+          },
+          brandSetting: {
+              brandName: "مؤسسة البيداء",
+              brandSubTitle: "ابحث عن مواصفاتك بأجود الخدمات",
+              brandImg: "/img/h-whatsapp-logo.png",
+              welcomeText: "مرحبا بك !\nكيف نستطيع ان نخدمك ?",
+              messageText: "الو",
+              backgroundColor: "#0a5f54",
+              ctaText: "اتصل بنا",
+              borderRadius: "25",
+              autoShow: false,
+              phoneNumber: "772389011",
+          },
+      };
+      s.onload = function () {
+          CreateWhatsappChatWidget(options);
+      };
+      var x = document.getElementsByTagName("script")[0];
+      x.parentNode.insertBefore(s, x);
+  </script>
+  
+
+
+
+
+
+<!-- Template Main JS File -->
+
+

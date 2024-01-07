@@ -1,0 +1,240 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Sailor Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  {% include "website/includes/style.html" %}
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+  
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'PT Sans', sans-serif;
+  }
+  
+  
+  .wrapper{
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%,-50%);
+  }
+  
+  .toggle_button{
+    width: auto;
+    height: 64px;
+    background: ghostwhite;
+    border-radius: 50px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+  
+  .toggle_button ul li a{
+    display: flex;
+    align-items: center;
+    height: 65px;
+    padding: 0 25px;
+  }
+  
+  .toggle_button ul li a.share_btn{
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .toggle_button ul li a.share_btn .text{
+    font-weight: 700;
+    font-size: 24px;
+      letter-spacing: 10px;
+      color: #c73a5d;
+      margin-right: 15px;
+  }
+  
+  .toggle_button ul li a.share_btn .icon{
+    width: 30px;
+    height: 30px;
+    background: #c73a5d;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    transition: all 1s ease;
+  }
+  
+  .toggle_button ul li a .icon i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+  }
+  
+  .toggle_button ul li a.sm .icon{
+    position: relative;
+    width: 35px;
+    height: 35px;
+    background: red;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .toggle_button ul li a .text{
+    letter-spacing: 2px;
+  }
+  
+  .toggle_button ul li a.facebook .icon{
+    background: #3b5998;
+  }
+  
+  .toggle_button ul li a.facebook .text{
+    color: #3b5998;
+  }
+  
+  .toggle_button ul li a.twitter .icon{
+    background: #1da1f2;
+  }
+  
+  .toggle_button ul li a.twitter .text{
+    color: #1da1f2;
+  }
+  
+  .toggle_button ul li a.instagram .icon{
+    background: #c32aa3;
+  }
+  
+  .toggle_button ul li a.instagram .text{
+    color: #c32aa3;
+  }
+  
+  .toggle_button ul li a.reddit .icon{
+    background: #ff4500;
+  }
+  
+  .toggle_button ul li a.reddit .text{
+    color: #ff4500;
+  }
+  
+  .toggle_button.active{
+    height: 325px;
+  }
+  
+  .toggle_button.active ul li a.share_btn .icon{
+    transform: rotate(45deg);
+  }
+  
+  .toggle_button ul li a.sm{
+    visibility: hidden;
+  }
+  
+  .toggle_button.active ul li a.sm {
+      visibility: visible;
+      transition-delay: 0.3s;
+  }
+  </style>
+  
+
+
+
+
+  
+  <!-- =======================================================
+  * Template Name: Sailor
+  * Updated: Sep 1h8 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head >
+
+<body style="text-align:right;">
+
+  <!-- ======= Header ======= -->
+  {% include "website/includes/header.html" %}
+  
+
+          
+  {% block body %}
+          
+  {% endblock %}
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<script>
+  const shareBtn = document.querySelector('.share-btn');
+  const shareOptions = document.querySelector('.share-options');
+
+  shareBtn.addEventListener('click', () => {
+  shareOptions.classList.toggle('active');
+  })
+    const copyBtn = document.querySelector('.copy-btn');
+
+copyBtn.addEventListener('click', () => {
+  const linkText = document.querySelector('.link').textContent;
+
+  navigator.clipboard.writeText(linkText)
+      .then(() => {
+          console.log('Link copied to clipboard!');
+          // Optional: Provide visual feedback to the user
+      })
+      .catch(err => {
+          console.error('Failed to copy link: ', err);
+      });
+});
+
+  </script>
+  <!-- ======= Footer ======= -->
+  {% include "website/includes/footer.html" %}
+
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+ 
+
+  <!-- Template Main JS File -->
+
+
+  <script src="{% static 'assets/js/jquery-3.5.1.min.js' %}"></script>
+
+  <script src="{% static 'assets/vendor/a/owl-carousel/js/owl.carousel.min.js' %}"></script>
+
+  <script src="{% static 'assets/vendor/a/wow/wow.min.js' %}"></script>
+  
+	<script src="{% static 'assets/vendor/jquery-3.4.1.min.js' %}"></script>
+
+</body>
+
+</html>
